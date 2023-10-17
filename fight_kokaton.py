@@ -192,6 +192,7 @@ def main():
                     pg.display.update()
         bombs = [bomb for bomb in bombs if bomb is not None]                        
 
+        score.update(screen)
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
         for bomb in bombs:
