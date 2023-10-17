@@ -91,6 +91,7 @@ class Beam:
         ビーム画像Surfaceを生成する
         引数 bird：こうかとんインスタンス（Birdクラスのインスタンス）
         """
+       
         self.img = pg.image.load(f"ex03/fig/beam.png")
         self.rct = self.img.get_rect()
         self.rct.left = bird.rct.right  # こうかとんの右横座標
@@ -104,6 +105,17 @@ class Beam:
         """
         self.rct.move_ip(self.vx, self.vy)
         screen.blit(self.img, self.rct)        
+
+class score:
+    def __init__(self, score:int):
+        self.font=pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体",30)
+        ao=(0,0,255)
+        score=0
+        self.img=self.font.render("スコア",0,ao)
+    
+    def update(self,screen:pg.Surface):
+        screen.blit(self.font,self.img)
+
 
 
 class Bomb:
@@ -157,6 +169,7 @@ def main():
                 return
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
                 # キーが押されたら，かつ，キーの種類がスペースキーだったら
+                
                 beam = Beam(bird)
 
         
